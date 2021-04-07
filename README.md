@@ -1,4 +1,4 @@
-# ReadableDijikstra
+# ReadableDijkstra
 
 Code to implement the Dijkstra "shortest path" algorithm. Plot twist: it's readable!!!
 
