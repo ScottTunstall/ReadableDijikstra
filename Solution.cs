@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 #nullable enable
 
@@ -13,6 +10,10 @@ namespace DjikstraV2
         private int[] Distances { get; set; }
         private bool[] NodeVisited { get; set; }
 
+        // Function that implements Dijkstra's 
+        // single source shortest path algorithm 
+        // for a graph represented using adjacency 
+        // matrix representation  (see https://www.youtube.com/watch?v=5S1II7Mc8v8)
         public int[] Dijkstra(int[,] graph, int numberOfNodesInGraph, int src)
         {
             Distances = new int[numberOfNodesInGraph];
@@ -25,7 +26,7 @@ namespace DjikstraV2
                 Distances[i] = int.MaxValue;
             }
 
-            // Put a breakpoint on this line and then view the nodes list in the VS 2019 watch window.
+            // Put a breakpoint on the line below and then step over. View the nodes list in the VS 2019 watch window.
             // You will see a list of 9 nodes, and when you drill down into each node, "Edges" will tell you
             // what node(s) they are connected to.
             var nodes = CreateNodes(graph, numberOfNodesInGraph);

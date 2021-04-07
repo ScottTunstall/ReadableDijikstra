@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DjikstraV2
 {
     public class Node
     {
-        private Lazy<List<Edge>> _connectedNodes = new(() => new List<Edge>());
+        private readonly Lazy<List<Edge>> _connectedNodes = new(() => new List<Edge>());
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name of this node</param>
+        /// <param name="index">Unique index for this node</param>
         public Node(string name, int index)
         {
             this.Name = name;
