@@ -19,13 +19,16 @@ namespace DjikstraV2
             Distances = new int[numberOfNodesInGraph];
             NodeVisited = new bool[numberOfNodesInGraph];
             
-            // Distance of source vertex from itself is always 0 
+            // Distance of source node from itself is always 0 
             Distances[0] = 0;
+
+            // For the other nodes, set their distances to MaxValue, which effectively means "uncalculated as yet"
             for (int i = 1; i < numberOfNodesInGraph; i++)
             {
                 Distances[i] = int.MaxValue;
             }
 
+            // 
             // Put a breakpoint on the line below and then step over. View the nodes list in the VS 2019 watch window.
             // You will see a list of 9 nodes, and when you drill down into each node, "Edges" will tell you
             // what node(s) they are connected to.
@@ -37,7 +40,7 @@ namespace DjikstraV2
             // Yes, it really is this easy!
             do
             {
-                UpdateDistances(currentNode);
+                UpdateUnvisitedNeighbourDistances(currentNode);
 
                 NodeVisited[currentNode.Index] = true;
 
@@ -52,9 +55,9 @@ namespace DjikstraV2
 
 
         /// <summary>
-        /// Create nodes and their edges 
+        /// Create a graph of nodes and their edges from a supplied adjacency matrix 
         /// </summary>
-        /// <param name="graph">the adjacency matrix describing connected nodes</param>
+        /// <param name="graph">the adjacency matrix</param>
         /// <param name="numberOfNodesInGraph">the number of nodes there are in the graph.</param>
         /// <returns>A list of <seealso cref="Node"/> nodes representing the graph.</returns>
         private IList<Node> CreateNodes(int[,] graph, int numberOfNodesInGraph)
@@ -101,7 +104,7 @@ namespace DjikstraV2
 
 
         // I considered xmldocs here but I think they might muddy the learning for you
-        private void UpdateDistances(Node currentNode)
+        private void UpdateUnvisitedNeighbourDistances(Node currentNode)
         {
             foreach (var edge in currentNode.Edges)
             {
