@@ -111,7 +111,7 @@ namespace DjikstraV2
                     continue;
 
                 if (Distances[currentNode.Index] + edge.Distance < Distances[targetNode.Index])
-                    Distances[edge.DestinationNode.Index] = Distances[currentNode.Index] + edge.Distance;
+                    Distances[targetNode.Index] = Distances[currentNode.Index] + edge.Distance;
             }
         }
 

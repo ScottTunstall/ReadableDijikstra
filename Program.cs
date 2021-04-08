@@ -8,7 +8,7 @@ namespace DjikstraV2
         static void Main(string[] args)
         {
             // Adjacency matrix represented as 2D array.
-            // Notice that the dimensions of array are equal (9 x 9)
+            // See adjacency-matrix-visualised-as-graph.png for graph representation.
             int[,] graph = new int[,]
             {
                 //A   B   C   D   E   F   G   H   I 
