@@ -74,8 +74,10 @@ namespace DijkstraV2
                     // if the distance isn't zero then the nodes are connected.
                     if (distance != 0)
                     {
-                        Node dest = nodes[j];
-                        nodes[i].Edges.Add(new Edge(dest, distance));
+                        Node sourceNode = nodes[i];
+                        Node destinationNode = nodes[j];
+
+                        sourceNode.Edges.Add(new Edge(destinationNode, distance));
                     }
                 }
             }
