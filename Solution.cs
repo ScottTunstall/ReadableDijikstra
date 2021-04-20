@@ -59,7 +59,7 @@ namespace DijkstraV2
         /// </summary>
         /// <param name="graph">the adjacency matrix</param>
         /// <param name="numberOfNodesInGraph">the number of nodes there are in the graph.</param>
-        /// <returns>A list of <seealso cref="Node"/> nodes representing the graph.</returns>
+        /// <returns>A list of <see cref="Node"/> nodes representing the graph.</returns>
         private IList<Node> CreateNodes(int[,] graph, int numberOfNodesInGraph)
         {
             var nodes = MakeNodes(numberOfNodesInGraph);
@@ -87,11 +87,17 @@ namespace DijkstraV2
 
 
         /// <summary>
-        /// Creates a list of nodes named after letters in the alphabet.
-        /// Node index 0 has name "A", node index 1 has name "B", 2 "C" etc. etc.
+        /// Creates a specified number of <see cref="Node"/>(s) and returns them as a list.
+        /// <para>
+        /// Each node is assigned a unique, ascending letter of the alphabet as its name, starting from "A".
+        /// </para>
+        /// <para>
+        /// For example, supplying 3 as <see cref="count"/> creates and returns a list with 3 <see cref="Node"/> instances named "A","B","C".
+        /// A node named "A" will be first (index 0) in the list, "B" will be second (index 1), "C" will be third (index 2) and so on.
+        /// </para>
         /// </summary>
-        /// <param name="count">Number of nodes to create. Maximum of 26.</param>
-        /// <returns></returns>
+        /// <param name="count">Number of <see cref="Node"/>(s) to create. Maximum of 26.</param>
+        /// <returns>A list of <see cref="Node"/> objects</returns>
         private IList<Node> MakeNodes(int count)
         {
             var nodes = new List<Node>(count);
