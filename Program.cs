@@ -1,5 +1,5 @@
 ﻿using System;
-using DijkstraV2;
+
 
 namespace DijkstraV2
 {
@@ -24,8 +24,8 @@ namespace DijkstraV2
                 { 0,  0,  2,  0,  0,  0,  6,  7,  0 }  // I
             };
 
-            var t = new Solution();
-            var distances = t.Dijkstra(graph, 9, 0);
+            var solution = new Solution();
+            var distances = solution.Dijkstra(graph, 9, 0);
 
             Console.Write("Vertex\t\tDistance from Source\n");
             for (int i = 0; i < 9; i++)

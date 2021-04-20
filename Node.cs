@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace DijkstraV2
 {
     /// <summary>
@@ -31,6 +33,11 @@ namespace DijkstraV2
         /// </summary>
         public int Index { get; }
 
+
+        /// <summary>
+        /// Collection of <see cref="Edge"/> objects representing the edges between this node and other nodes
+        /// </summary>
+        /// <remarks>An edge is a connection to another node, e.g. a line between two nodes on a graph</remarks>
         public IList<Edge> Edges => _connectedNodes.Value;
 
         public override string ToString()
