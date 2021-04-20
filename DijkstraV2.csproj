@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>DijkstraV2</RootNamespace>
+    <AssemblyName>DijkstraV2</AssemblyName>
   </PropertyGroup>
 
 </Project>

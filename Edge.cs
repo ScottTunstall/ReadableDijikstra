@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DjikstraV2
+namespace DijkstraV2
 {
     /// <summary>
-    /// An edge is a connection from one Node to another
+    /// Represents an edge in a graph.
     /// </summary>
+    /// <remarks>
+    /// An edge is a connection from one Node to another
+    /// </remarks>
     public class Edge
     {
 

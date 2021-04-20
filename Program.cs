@@ -1,6 +1,7 @@
 ﻿using System;
+using DijkstraV2;
 
-namespace DjikstraV2
+namespace DijkstraV2
 {
 
     class Program

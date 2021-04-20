@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable enable
 
-namespace DjikstraV2
+namespace DijkstraV2
 {
     public class Solution
     {
@@ -20,7 +20,7 @@ namespace DjikstraV2
             NodeVisited = new bool[numberOfNodesInGraph];
             
             // Distance of source node from itself is always 0 
-            Distances[0] = 0;
+            Distances[src] = 0;
 
             // For the other nodes, set their distances to MaxValue, which effectively means "uncalculated as yet"
             for (int i = 1; i < numberOfNodesInGraph; i++)
@@ -44,7 +44,7 @@ namespace DjikstraV2
 
                 NodeVisited[currentNode.Index] = true;
 
-                currentNode = GetClosestNode(currentNode);
+                currentNode = GetClosestUnvisitedNeighbour(currentNode);
 
             } while (currentNode != null);
 
@@ -64,14 +64,14 @@ namespace DjikstraV2
         {
             var nodes = MakeNodes(numberOfNodesInGraph);
 
-            // Load the graph and find out what nodes are connected (their "edges")
+            // Load the graph and find out what nodes are connected (via "edges")
             for (int i = 0; i < numberOfNodesInGraph; i++)
             {
                 for (int j = 0; j < numberOfNodesInGraph; j++)
                 {
                     var distance  = graph[i,j];
 
-                    // if the weight isn't zero then the nodes are connected.
+                    // if the distance isn't zero then the nodes are connected.
                     if (distance != 0)
                     {
                         Node dest = nodes[j];
@@ -120,16 +120,20 @@ namespace DjikstraV2
 
 
         /// <summary>
-        /// Get the closest Node to the supplied Node
+        /// Evaluates all neighbours of node <see cref="startNode"/>
+        /// and returns the closest unvisited node.
         /// </summary>
-        /// <param name="currentNode"></param>
-        /// <returns>Returns the closest unvisited neighbour if one exists; null otherwise</returns>
-        private Node? GetClosestNode(Node currentNode)
+        /// <param name="startNode">Starting node</param>
+        /// <remarks>
+        /// Neighbour nodes are those that have an edge from <see cref="startNode"/> to them
+        /// </remarks>
+        /// <returns>Returns the closest unvisited neighbour <see cref="Node"/> if one exists; null otherwise</returns>
+        private Node? GetClosestUnvisitedNeighbour(Node startNode)
         {
             var bestDistance = int.MaxValue;
             Node? closestNeighbour = null;
 
-            foreach (var edge in currentNode.Edges)
+            foreach (var edge in startNode.Edges)
             {
                 var targetNode = edge.DestinationNode;
 

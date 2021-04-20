@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DjikstraV2
+namespace DijkstraV2
 {
+    /// <summary>
+    /// Represents a Node within a graph.
+    /// </summary>
     public class Node
     {
         private readonly Lazy<List<Edge>> _connectedNodes = new(() => new List<Edge>());
